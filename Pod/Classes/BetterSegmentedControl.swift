@@ -297,6 +297,8 @@ import UIKit
     
     // MARK: Animations
     private func moveIndicatorViewToIndex(_ animated: Bool, shouldSendEvent: Bool) {
+      print("\n|\n \(#function as Any) \(shouldSendEvent)\n|\n")
+
         if animated {
             if shouldSendEvent && announcesValueImmediately {
                 sendActions(for: .valueChanged)
