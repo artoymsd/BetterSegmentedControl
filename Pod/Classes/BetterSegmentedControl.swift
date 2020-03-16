@@ -287,12 +287,12 @@ import UIKit
     /// - Parameters:
     ///   - index: The new index.
     ///   - animated: (Optional) Whether the change should be animated or not. Defaults to `true`.
-    public func setIndex(_ index: Int, animated: Bool = true) {
+  public func setIndex(_ index: Int, animated: Bool = true, shouldSendEvent: Bool? = nil) {
         guard normalSegments.indices.contains(index) else { return }
         
         let oldIndex = self.index
         self.index = index
-        moveIndicatorViewToIndex(animated, shouldSendEvent: (self.index != oldIndex || alwaysAnnouncesValue))
+        moveIndicatorViewToIndex(animated, shouldSendEvent: (shouldSendEvent == true && (self.index != oldIndex || alwaysAnnouncesValue)))
     }
     
     // MARK: Animations
